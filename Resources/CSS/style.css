@@ -7,13 +7,15 @@
   box-sizing: border-box;
 }
 
-html {
+html,
+body {
   background-color: #fff;
   color: #555;
   font-family: "Lato", "Arial", sans-serif;
   font-weight: 300;
   font-size: 20px;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 .clearfix {
@@ -31,7 +33,7 @@ html {
 /* REUSEABLE COMPONENTS */
 /* -------------------------------------------- */
 .row {
-  max-width: 1140px; /*Only value that will have absolute units*/
+  max-width: 1140px; /*Only width value that will have absolute units*/
   margin: 0 auto; /*Centers the content*/
 }
 
@@ -105,9 +107,40 @@ h3 {
   margin-bottom: 10px;
 }
 
+.icon-small {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+  color: #e67e22;
+  font-size: 120%;
+  margin-right: 10px;
+
+  /*Secrets to align text and icons*/
+  line-height: 120%;
+  vertical-align: middle;
+  margin-top: -5px;
+}
+
+/* ----- LINKS (<a> tag) ----- */
+a:link,
+a:visited {
+  color: #e67e22;
+  text-decoration: none;
+  border-bottom: 1px solid #e67e22;
+  padding-bottom: 1px;
+  transition: border-bottom 0.2s, color 0.2s, margin-left;
+}
+
+a:hover,
+a:active {
+  color: #555;
+  border: none; /* using border: 1px solid transparent was shifting the links to the left when hovered on */
+}
+
 /* ----- BUTTONS ----- */
 .btn:link,
-.btn:visited {
+.btn:visited,
+input[type="submit"] {
   display: inline-block;
   padding: 10px 30px;
   font-weight: 300;
@@ -117,28 +150,31 @@ h3 {
   transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 
+.btn:hover,
+.btn:active,
+input[type="submit"]:hover,
+input[type="submit"]:active {
+  background-color: #cf6d17;
+}
+
 .btn-full:link,
-.btn-full:visited {
+.btn-full:visited,
+input[type="submit"] {
   background-color: #e67e22;
   border: 1px solid #e67e22;
   color: #fff;
   margin-right: 15px;
 }
 
+.btn-full:hover,
+.btn-full:active {
+  border: 1px solid #cf6d17;
+}
+
 .btn-ghost:link,
 .btn-ghost:visited {
   border: 1px solid #e67e22;
   color: #e67e22;
-}
-
-.btn:hover,
-.btn:active {
-  background-color: #cf6d17;
-}
-
-.btn-full:hover,
-.btn-full:active {
-  border: 1px solid #cf6d17;
 }
 
 .btn-ghost:hover,
@@ -164,6 +200,7 @@ header {
   background-size: cover; /*Image covers the whole view area*/
   background-position: center;
   height: 100vh;
+  background-attachment: fixed;
 }
 
 .hero-text-box {
@@ -292,6 +329,11 @@ header {
   margin-right: 25px;
 }
 
+.btn-app:link,
+.btn-app:visited {
+  border: 0;
+}
+
 .btn-app img {
   height: 50px;
   width: auto;
@@ -352,3 +394,217 @@ header {
 /* -------------------------------------------- */
 /*Jonas' code for CITIES */
 /* -------------------------------------------- */
+.box img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.city-feature {
+  margin-bottom: 5px;
+}
+
+/* -------------------------------------------- */
+/* TESTIMONIALS */
+/* -------------------------------------------- */
+.section-testimonals {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(Images/back-customers.jpg);
+  background-size: cover;
+  color: #fff;
+  background-attachment: fixed;
+}
+
+blockquote {
+  padding: 2%;
+  font-style: italic;
+  line-height: 145%;
+  position: relative;
+  margin-top: 40px;
+}
+
+blockquote::before {
+  content: "\201C";
+  font-size: 500%;
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: -3px;
+}
+
+cite {
+  font-size: 90%;
+  margin-top: 25px;
+  display: block;
+}
+
+cite img {
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* -------------------------------------------- */
+/* SELECTION PLANS */
+/* -------------------------------------------- */
+.section-plans {
+  background-color: #f4f4f4;
+}
+
+.plan-box {
+  background-color: #fff;
+  border-radius: 5px;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.plan-box div {
+  padding: 15px;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 2px 2px #efefef;
+}
+
+.plan-box div:first-child {
+  background-color: #fcfcfc;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.plan-box div:last-child {
+  text-align: center;
+  border: none;
+}
+
+.plan-price {
+  font-size: 300%;
+  margin-bottom: 10px;
+  font-weight: 100;
+  color: #e67e22;
+}
+
+.plan-price span {
+  font-size: 30%;
+  font-weight: 300;
+}
+
+.plan-price-meal {
+  font-size: 80%;
+}
+
+.plan-box ul {
+  list-style: none;
+}
+
+.plan-box ul li {
+  padding: 5px 0;
+}
+
+/* -------------------------------------------- */
+/* FORM */
+/* -------------------------------------------- */
+.contact-form {
+  width: 60%; /*Reduces space between text and form*/
+  margin: 0 auto;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%; /*Boxes fill the whole column*/
+  padding: 7px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  height: 100px;
+}
+
+input[type="checkbox"] {
+  margin: 10px 5px 10px 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+/* -------------------------------------------- */
+/* FOOTER */
+/* -------------------------------------------- */
+footer {
+  background-color: #333;
+  padding: 50px;
+  font-size: 80%;
+}
+
+.footer-nav {
+  list-style: none;
+  float: left;
+}
+
+.social-icons {
+  list-style: none;
+  float: right;
+}
+
+.footer-nav li,
+.social-icons li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.footer-nav li:last-child,
+.social-icons li:last-child {
+  margin-right: 0;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-icons li a:link,
+.social-icons li a:visited {
+  text-decoration: none;
+  border: 0;
+  color: #888;
+  transition: color 0.2s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+  color: #ddd;
+}
+
+.social-icons li a:link,
+.social-icons li a:visited {
+  font-size: 140%;
+}
+
+.icon-facebook,
+.icon-twitter,
+.icon-google-plus,
+.icon-instagram {
+  transition: color 0.2s;
+}
+
+.icon-facebook:hover {
+  color: #3b5998;
+}
+
+.icon-twitter:hover {
+  color: #00aced;
+}
+
+.icon-google-plus:hover {
+  color: #dd4b93;
+}
+
+.icon-instagram:hover {
+  color: #517fa4;
+}
+
+footer p {
+  color: #888;
+  text-align: center;
+  margin-top: 70px;
+}
